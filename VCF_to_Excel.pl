@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
-#Script to convert vcf file to tab delim text file that can be input to excel
+#Script to convert vcf file to tab delim text file that can be imported into excel
+#Don't forget to tick the Excel 'text' option for the gene name column!!
 
 use strict;
 use warnings;
@@ -38,7 +39,7 @@ loop4: while (<INPUT4>){
 	chomp $Line2;
 	my @lsplit2=split(/\t/,$Line2);
 	if(!exists $inhouse{$lsplit2[0]}{$lsplit2[1]}{$lsplit2[2]}{$lsplit2[3]}){
-		$inhouse{$lsplit2[0]}{$lsplit2[1]}{$lsplit2[2]}{$lsplit2[3]}{'maf'}=$lsplit2[8]; ##or [7] depending on best maf????
+		$inhouse{$lsplit2[0]}{$lsplit2[1]}{$lsplit2[2]}{$lsplit2[3]}{'maf'}=$lsplit2[8];
 		$inhouse{$lsplit2[0]}{$lsplit2[1]}{$lsplit2[2]}{$lsplit2[3]}{'IHCount'}=$lsplit2[4];
 		$inhouse{$lsplit2[0]}{$lsplit2[1]}{$lsplit2[2]}{$lsplit2[3]}{'het'}=$lsplit2[5];
 		$inhouse{$lsplit2[0]}{$lsplit2[1]}{$lsplit2[2]}{$lsplit2[3]}{'hom'}=$lsplit2[6];
